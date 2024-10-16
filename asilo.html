@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lentes para Todos</title>
+    <style>
+        /* Estilos globales */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #181818;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            font-weight: 300;
+        }
+
+        h1 {
+            margin-top: 60px;
+            font-size: 2.5rem; /* Cambiado a rem */
+            color: #f2f2f2;
+        }
+
+        p {
+            font-size: 1rem; /* Cambiado a rem */
+            line-height: 1.7;
+            color: #b3b3b3;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 40px;
+            padding: 0 20px;
+        }
+
+        /* Caja para la imagen y texto */
+        .content-box {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: #282828;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 1200px; /* Ancho aumentado */
+            transition: transform 0.3s ease;
+        }
+
+        .content-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .img-container {
+            flex-basis: 40%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .img-container img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .text-container {
+            flex-basis: 55%;
+            padding-left: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .text-container h2 {
+            font-size: 1.8rem; /* Cambiado a rem */
+            color: #f2f2f2;
+            margin-bottom: 20px;
+        }
+
+        .text-container p {
+            font-size: 1rem; /* Cambiado a rem */
+            line-height: 1.8;
+            color: #c2c2c2;
+        }
+
+        .button-link {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #FF6B6B;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            align-self: flex-start;
+            font-size: 1rem; /* Cambiado a rem */
+        }
+
+        .button-link:hover {
+            background-color: #ff3b3b;
+            transform: translateY(-3px);
+        }
+
+        /* Sección de fases del proyecto */
+        .phase-section {
+            background-color: #333;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: left;
+            max-width: 1200px; /* Ancho aumentado */
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column; /* Asegura que se apilen verticalmente */
+        }
+
+        .phase-section h3 {
+            color: #f2f2f2;
+            font-size: 1.2rem; /* Cambiado a rem para texto más pequeño */
+            margin-bottom: 15px; /* Reducido margen inferior */
+        }
+
+        .phase-section p {
+            color: #ccc;
+            font-size: 0.9rem; /* Cambiado a rem para texto más pequeño */
+            line-height: 1.6; /* Ajuste en el interlineado */
+        }
+
+        /* Sección de maestros involucrados */
+        .teachers-section {
+            background-color: #282828;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 1200px; /* Ancho aumentado */
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-top: 30px;
+        }
+
+        .teachers-section h3 {
+            color: #f2f2f2;
+            font-size: 1.5rem; /* Cambiado a rem para mayor visibilidad */
+            margin-bottom: 20px;
+        }
+
+        .teachers-section p {
+            color: #c2c2c2;
+            font-size: 1rem; /* Cambiado a rem */
+            line-height: 1.6; /* Ajuste en el interlineado */
+            margin: 0; /* Eliminar margen */
+        }
+
+        /* Media Queries para mejorar la responsividad */
+        @media (max-width: 768px) {
+            .content-box {
+                flex-direction: column; /* Apilar contenido en pantallas pequeñas */
+                align-items: center;
+            }
+
+            .text-container {
+                padding-left: 0; /* Eliminar padding para pantalla pequeña */
+                text-align: center; /* Centrar texto en pantallas pequeñas */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem; /* Ajustar tamaño del título para móviles */
+            }
+
+            h2, h3 {
+                font-size: 1.5rem; /* Ajustar tamaño de subtítulos para móviles */
+            }
+
+            p {
+                font-size: 0.9rem; /* Ajustar tamaño del texto para móviles */
+            }
+
+            .button-link {
+                padding: 10px 20px; /* Ajustar tamaño de botón para móviles */
+                font-size: 0.9rem; /* Ajustar tamaño del texto del botón para móviles */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Título principal -->
+    <h1>Lentes para Todos</h1>
+
+    <!-- Contenedor principal -->
+    <div class="main-container">
+
+        <!-- Caja de contenido principal con imagen y texto -->
+        <div class="content-box">
+            <div class="img-container">
+                <img src="ansilo1.jpg" alt="Imagen de lentes">
+            </div>
+            <div class="text-container">
+                <h2>Ayudando a quienes más lo necesitan</h2>
+                <p>Fomentar en los estudiantes la conciencia social y la sensibilización sobre el cuidado del adulto mayor en su comunidad.</p>
+                <a href="#" class="button-link">Conoce más</a>
+            </div>
+        </div>
+
+        <!-- Apartado de maestros involucrados -->
+        <div class="teachers-section">
+            <h3>Maestros Involucrados</h3>
+            <p>Gemma Adlemi Morales Villegas</p>
+                  <p> J Antonio Romo Marin</p>
+                <p>  David Emmanuel Andrade Torres</p>
+                 <P> Silvia Márquez Rodríguez</p>
+                <p> Claudia Elizabeth Martínez Murillo</p>
+                <p>Orlando Ramiro Esquivel Arellano</p>
+              <p>Ana Celia Rodarte Durón</p>
+               <p>Magdalena Valdivia López</p>
+             <p>Maria Patricia Arellano Flores</p>
+         <p>María Soledad Salazar Vázquez</p>
+       <p>Juana ines Florez López</p>
+   <p> Luz Cecilia Sánchez Zamarripa</p>
+     <p> Brenda Susana López González</p>
+ <p>Stephanie Diaz Ramirez</p>
+
+
+
+        </div>
+
+        <!-- Información de las fases del proyecto -->
+        <div class="phase-section">
+            <h3>Fase 1: Diagnóstico (general todos los PEC)</h3>
+            <p>Resumen del Diagnóstico General: 
+                1. Banco de Activos Docentes: Evaluar el conocimiento y la aplicación de los estudiantes frente a problemas en proyectos.
+                2. Examen Diagnóstico: Crear y aplicar un examen al inicio del próximo semestre para medir conocimientos previos.
+                3. Análisis Estadístico: Revisar las respuestas en el Consejo Técnico para identificar fortalezas y áreas de oportunidad.
+            </p>
+        </div>
+
+        <div class="phase-section">
+            <h3>Fase 2: Sensibilización de los alumnos</h3>
+            <p>En esta fase los docentes diseñarán actividades de sensibilización para los alumnos (película sobre el tema del cuidado del adulto mayor).</p>
+        </div>
+
+        <div class="phase-section">
+            <h3>Fase 3: Investigación para concientizar a los alumnos</h3>
+            <p>Los alumnos crearán un video relacionado a la realidad observada en la película con la vida de sus propios abuelitos, para identificar necesidades (o de algún adulto mayor cercano a ellos).</p>
+        </div>
+
+        <div class="phase-section">
+            <h3>Fase 4: Visita a las casas de asistencia</h3>
+            <p>
+                1. Los alumnos visitan las casas de asistencia para crear historias de vida, es decir, entrevistas con adultos mayores.
+                2. Creación de cartas al pasado, ya sea de un familiar fallecido o que no hayan visto después de mucho tiempo.
+                3. Lectura de libros o historias a los adultos mayores y ayudarlos a elaborar un presente (actividad manual).
+            </p>
+        </div>
+
+        <div class="phase-section">
+            <h3>Fase 5: Investigación de insumos</h3>
+            <p>
+                1. Investigación de línea de procesos de artículos para adultos mayores.
+                2. Investigación sobre importación y exportación de artículos para adultos mayores.
+                3. Los alumnos investigan y descubren un problema, fenómeno o situación relevante del adulto mayor para concluir con medidas de tendencia central.
+            </p>
+        </div>
+
+        <div class="phase-section">
+            <h3>Fase 6: Visita a las casas de asistencia</h3>
+            <p>
+                1. Los alumnos visitan las casas de asistencia para realizar actividades dinámicas y entrega de artículos de primera necesidad.
+                2. Los alumnos presentan villancicos y posadas.
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
